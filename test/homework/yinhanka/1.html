@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 我们需要5个变量：银行卡总额、水费、电费、网费、银行卡余额 -->
+  </head>
+  <body>
+    <script>
+      let allmoney=+prompt('银行卡总额?')
+      let water=+prompt('水费?')
+      let electricity=+prompt('电费?')
+      let net=+prompt('网费?')
+      let lastmoney=allmoney-water-electricity-net
+      
+      document.write(`<center>
+      <h1>2022消费支出</h1>
+    <table border="2px">
+      <tr>
+        <td>银行卡总额</td>
+        <td>水费</td>
+        <td>电费</td>
+        <td>网费</td>
+        <td>银行卡余额</td>
+      </tr>
+      <tr>
+        <td>${allmoney}</td>
+        <td>${water}</td>
+        <td>${electricity}</td>
+        <td>${net}</td>
+        <td>${lastmoney}</td>
+      </tr>
+    </table>
+</center>
+      `)
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .col{
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="col">one</button>
+    <button>two</button>
+    <button>three</button>
+    <button>four</button>
+    <script>
+      let btn=document.querySelectorAll('button')
+      for(let i=0;i<btn.length;i++){
+        btn[i].addEventListener('click',function(){
+          let ch=document.querySelector('.col').className=''
+          btn[i].className='col'
+
+
+        })
+      }
+    </script>
+  </body>
+</html>
