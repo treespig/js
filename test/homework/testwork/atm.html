@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let money = 10000;
+
+      while (money) {
+        let card = +prompt(`
+            1.取款
+            2.存款
+            3.显示余额
+            4.退出
+            `);
+        if (card === 1) {
+          let savemoney = +prompt(`存多少？`);
+          money += savemoney;
+        } else if (card === 2) {
+          let takemoney = +prompt(`取多少？`);
+          money -= takemoney;
+        } else if (card === 3) {
+          alert(money);
+        } else if (card === 4) {
+          break;
+        } else {
+          alert("重新输入");
+        }
+      }
+    </script>
+  </body>
+</html>
