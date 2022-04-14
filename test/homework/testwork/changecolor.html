@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .col{
+      .col {
         background-color: aqua;
       }
     </style>
@@ -17,14 +17,14 @@
     <button>three</button>
     <button>four</button>
     <script>
-      let btn=document.querySelectorAll('button')
-      for(let i=0;i<btn.length;i++){
-        btn[i].addEventListener('click',function(){
-          let ch=document.querySelector('.col').className=''
-          btn[i].className='col'
-
-
-        })
+      let btn = document.querySelectorAll("button");
+      for (let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener("click", function () {
+          for (let j = 0; j < btn.length; j++) {
+            btn[j].classList.remove("col");
+          }
+          this.classList.add("col");
+        });
       }
     </script>
   </body>
