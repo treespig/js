@@ -95,11 +95,13 @@
             if (ck[j].checked == false) {
               checkAll.checked = false;
               all.innerHTML = "全选";
-            } else {
-              checkAll.checked = true;
-              all.innerHTML = "取消";
-            }
+              return
+            } 
+              
+            
           }
+          checkAll.checked = true;
+              all.innerHTML = "取消";
         });
       }
     </script>

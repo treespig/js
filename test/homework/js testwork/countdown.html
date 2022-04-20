@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .countdown {
+        width: 240px;
+        height: 305px;
+        text-align: center;
+        line-height: 1;
+        color: #fff;
+        background-color: brown;
+        overflow: hidden;
+      }
+
+      .countdown .next {
+        font-size: 16px;
+        margin: 25px 0 14px;
+      }
+
+      .countdown .title {
+        font-size: 33px;
+      }
+
+      .countdown .tips {
+        margin-top: 80px;
+        font-size: 23px;
+      }
+
+      .countdown small {
+        font-size: 17px;
+      }
+
+      .countdown .clock {
+        width: 142px;
+        margin: 18px auto 0;
+        overflow: hidden;
+      }
+
+      .countdown .clock span,
+      .countdown .clock i {
+        display: block;
+        text-align: center;
+        line-height: 34px;
+        font-size: 23px;
+        float: left;
+      }
+
+      .countdown .clock span {
+        width: 34px;
+        height: 34px;
+        border-radius: 2px;
+        background-color: #303430;
+      }
+
+      .countdown .clock i {
+        width: 20px;
+        font-style: normal;
+      }
+    </style>
+  </head>
+
+  <body>
+    <center>
+      <div class="countdown">
+        <p class="next">今天是?年?月？日</p>
+        <p class="title">下班倒计时</p>
+        <p class="clock">
+          <span id="hour">00</span>
+          <i>:</i>
+          <span id="minutes">00</span>
+          <i>:</i>
+          <span id="scond">00</span>
+        </p>
+        <p class="tips">现在是18:00:00</p>
+      </div>
+    </center>
+    <script>
+      let next = document.querySelector(".next");
+      let hour = document.querySelector("#hour");
+      let minutes = document.querySelector("#minutes");
+      let scond = document.querySelector("#scond");
+      let tips = document.querySelector(".tips");
+      let time = 0;
+      getday();
+      function getday() {
+        let date1 = new Date();
+        next.innerHTML = `
+        今天是${date1.getFullYear()}年${
+          date1.getMonth() + 1
+        }月${date1.getDate()}日
+        `;
+      }
+      time = setInterval(function () {
+        let end = new Date(
+          new Date(new Date().toLocaleDateString()).getTime() +
+            18 * 60 * 60 * 1000
+        );
+        let date = +new Date();
+        let count = (end - date) / 1000;
+        let h = parseInt((count / 60 / 60) % 24);
+        h = h < 10 ? "0" + h : h;
+        let m = parseInt((count / 60) % 60);
+        m = m < 10 ? "0" + m : m;
+        let s = parseInt(count % 60);
+        s = s < 10 ? "0" + s : s;
+        hour.innerHTML = h;
+        minutes.innerHTML = m;
+        scond.innerHTML = s;
+        let date1 = new Date();
+        let ho = date1.getHours();
+        ho = ho < 10 ? "0" + ho : ho;
+        let mi = date1.getMinutes();
+        mi = mi < 10 ? "0" + mi : mi;
+        let sc = date1.getSeconds();
+        sc = sc < 10 ? "0" + sc : sc;
+        tips.innerHTML = `
+        现在是${ho}:${mi}:${sc}
+        `;
+      }, 1000);
+    </script>
+  </body>
+</html>
